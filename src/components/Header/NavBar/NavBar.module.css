@@ -1,0 +1,17 @@
+.NavBar{
+    display: flex;
+    justify-content: space-evenly;
+    width: 33.3%;
+}
+
+.NavBar p{
+    cursor: pointer;
+    padding: 10px;
+}
+
+
+.NavBar p:hover{
+    color: aquamarine;
+    border-bottom: 1px solid aqua;
+
+}

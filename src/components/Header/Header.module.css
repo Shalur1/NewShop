@@ -1,0 +1,22 @@
+.Header{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Logo{
+    width: 33.3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.Shop{
+    cursor: pointer;
+    width: 33.3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
