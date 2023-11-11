@@ -1,7 +1,10 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
+import {NavBarReducer} from "../NavBar/NavBar";
+import {ProductsInfoReducer} from "../MainPage/ProductsInfo";
 
 const rootReducer = combineReducers({
-
+    NavBarReducer,
+    ProductsInfoReducer,
 })
 
 export const setupStore = () =>{

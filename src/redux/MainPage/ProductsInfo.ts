@@ -23,9 +23,9 @@ interface Currency {
     symbol: String,
 }
 
-interface ProductsInfoState {
+interface Products {
     id?:String,
-    name?: String,
+    name: String,
     inStock?: Boolean,
     gallery?: [String],
     description?: String,
@@ -35,17 +35,25 @@ interface ProductsInfoState {
     brand?: String,
 }
 
-const initialState: ProductsInfoState = {
+interface ProductsInfoState {
+    products: [Products] | []
+}
 
+const initialState: ProductsInfoState = {
+    products: []
 };
 
-const ProductsInfo = createSlice({
+const ProductsInfoSlice = createSlice({
     name: 'MainPage',
     initialState,
     reducers: {
-
+        setProducts(state, action){
+            state.products = action.payload.category.products
+        }
     },
 });
 
-export const MainPageSliceActions = ProductsInfo.actions;
-export const MainPageSliceReducer = ProductsInfo.reducer;
+
+
+export const ProductsInfoActions = ProductsInfoSlice.actions;
+export const ProductsInfoReducer = ProductsInfoSlice.reducer;

@@ -1,12 +1,11 @@
 import React from 'react';
-import Navbar from "./NavBar/Navbar";
-// @ts-ignore
+import NavVar from "./NavBar/Navbar";
 import s from "./Header.module.css"
 
 const Header = () => {
     return (
         <div className={s.Header}>
-            <Navbar/>
+            <NavVar/>
             <div className={s.Logo}>
                 <div>Logo</div>
             </div>
