@@ -1,0 +1,19 @@
+.Text{
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6px;
+    border: black solid 1px;
+    height: 45px;
+    width: 63px;
+}
+
+.Color{
+    margin: 5px;
+    border: black solid 1px;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+}

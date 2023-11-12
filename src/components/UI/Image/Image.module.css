@@ -1,0 +1,55 @@
+.imageContainer{
+    width: 100%;
+}
+
+
+.image {
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0.3s;
+}
+
+.modal.open {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.4s;
+}
+
+.modalContent {
+    flex-direction: column;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.modalImage {
+    border-radius: 50px;
+    width: 60vw;
+    height: 80vh;
+    object-fit: contain;
+}
+
+.Navigation button{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.Navigation{
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+

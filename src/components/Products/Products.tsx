@@ -1,7 +1,9 @@
 import React, {FC, useEffect} from 'react';
 import {useQuery} from "@apollo/client";
-import {GET_CATEGORIES, GET_PRODUCTS} from "../../query/query";
+import {GET_PRODUCTS} from "../../query/query";
 import useActions, {useAppSelector} from "../../hooks/redux";
+import s from "./Products.module.css"
+import ProductTicket from "./ProductTicket/ProductTicket";
 
 const Products: FC = () => {
     const chosenCategory = useAppSelector(state => state.NavBarReducer.chosenCategory);
@@ -14,18 +16,20 @@ const Products: FC = () => {
     useEffect(() => {
         refetch()
         if (!loading){
-            console.log(data, products)
             setProducts(data)
+            console.log(data, products)
         }
-    }, [chosenCategory]);
+    }, [chosenCategory, loading]);
 
     if (loading) {
         return <p>Loading...</p>;
     }
 
     return (
-        <div>
-            <p>GG</p>
+        <div className={s.Products}>
+            {products.map((elem) =>{
+                return <ProductTicket elem={elem}/>
+            })}
         </div>
     );
 };

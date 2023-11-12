@@ -1,42 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit';
-
-interface Attribute {
-    displayValue: String
-    value: String
-    id: String
-}
-
-interface Price {
-    currency: Currency
-    amount: Number
-}
-
-interface attributes {
-    id: String,
-    name: String,
-    type: String,
-    items: [Attribute]
-}
-
-interface Currency {
-    label: String,
-    symbol: String,
-}
-
-interface Products {
-    id?:String,
-    name: String,
-    inStock?: Boolean,
-    gallery?: [String],
-    description?: String,
-    category?: String,
-    attributes?: attributes
-    prices?: Price
-    brand?: String,
-}
+import {Product} from "../../types/types";
 
 interface ProductsInfoState {
-    products: [Products] | []
+    products: [Product] | []
 }
 
 const initialState: ProductsInfoState = {

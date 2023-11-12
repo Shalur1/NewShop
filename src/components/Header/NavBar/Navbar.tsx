@@ -5,6 +5,7 @@ import {GET_CATEGORIES} from "../../../query/query";
 import useActions, {useAppSelector} from "../../../hooks/redux";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../../redux/store/store";
+import {useNavigate} from "react-router-dom";
 
 const NavBar:FC = () => {
     const {setCategories, setChosenCategory} = useActions();
@@ -12,6 +13,8 @@ const NavBar:FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const categories = useAppSelector(state => state.NavBarReducer.categories);
     const chosenCategory = useAppSelector(state => state.NavBarReducer.chosenCategory);
+    const nav = useNavigate()
+
 
     useEffect(() => {
         if (!loading && data) {
@@ -25,6 +28,7 @@ const NavBar:FC = () => {
         if (name) {
             dispatch(setChosenCategory(name));
         }
+        nav("/")
     };
 
     return (

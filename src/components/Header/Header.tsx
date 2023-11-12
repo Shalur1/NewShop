@@ -1,6 +1,7 @@
 import React from 'react';
 import NavVar from "./NavBar/Navbar";
 import s from "./Header.module.css"
+import {useNavigate} from "react-router-dom";
 
 const Header = () => {
     return (

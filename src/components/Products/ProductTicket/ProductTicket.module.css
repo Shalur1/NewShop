@@ -1,0 +1,8 @@
+.ProductTicket {
+    width: 26%;
+}
+
+.Image img {
+    cursor: pointer;
+    width: 100%;
+}

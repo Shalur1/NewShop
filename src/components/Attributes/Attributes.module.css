@@ -1,0 +1,9 @@
+.AttributeContainer{
+    display: flex;
+}
+
+.Attributess{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

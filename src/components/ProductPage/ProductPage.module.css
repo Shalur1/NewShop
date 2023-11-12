@@ -1,0 +1,26 @@
+.ProductPage{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5vh;
+}
+
+.Images{
+    display: flex;
+    margin: 20px;
+}
+
+.imgContainer{
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.MainImage{
+    width: 50vw;
+}
+
+.Images img{
+    width: 100%;
+    margin: 10px;
+    cursor: pointer;
+}

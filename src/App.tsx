@@ -1,16 +1,21 @@
 import React, {useEffect} from 'react';
 import './App.css';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import MainPage from "./components/MainPage/MainPage";
+import ProductPage from "./components/ProductPage/ProductPage";
 import Header from "./components/Header/Header";
-import Products from "./components/Products/Products";
 
 function App() {
 
     return (
         <div className="App">
-            <header className="App-header">
+            <BrowserRouter>
                 <Header/>
-            </header>
-            <Products/>
+                <Routes>
+                    <Route path={"/"} element={<MainPage/>}/>
+                    <Route path={"/product/:productID"} element={<ProductPage/>}/>
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }
