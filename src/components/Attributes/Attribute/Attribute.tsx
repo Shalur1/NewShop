@@ -1,7 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import s from "./Attribute.module.css"
 import useActions, {useAppSelector} from "../../../hooks/redux";
-import clsx from "clsx";
 
 interface AttributeeProps {
     productName: string
@@ -13,32 +12,50 @@ interface AttributeeProps {
 }
 const Attributee: FC<AttributeeProps> = ({ AttributeName, productName, displayValue, value, type, id }) => {
     const chosenAtt = useAppSelector((state) => state.ChosenAttributesReducer.chosenAttributes);
-    const { setChosenAttribues } = useActions();
+    const { setChosenAttribues, removeChosenAttribute } = useActions();
     const [isChosenAttribute, setIsChosenAttribute] = useState(false);
+    const [canSetChosen, setCanSetChosen] = useState(true);
+    const checkChosenAttribute = () => {
+        const chosenAttribute = chosenAtt.find((attr) => (
+            attr &&
+            attr.ProductName === productName &&
+            attr.AttributeName === AttributeName &&
+            attr.value === value
+        ));
+        setIsChosenAttribute(!!chosenAttribute);
+        setCanSetChosen(!!chosenAttribute);
+    };
 
     useEffect(() => {
-        const chosenAttribute = chosenAtt.find((attr) => {
-            return (
-                attr &&
-                attr.ProductName === productName &&
-                attr.AttributeName === AttributeName &&
-                attr.value === value
-            );
-        });
-        setIsChosenAttribute(!!chosenAttribute);
+        checkChosenAttribute();
     }, [chosenAtt]);
+
+    useEffect(() => {
+        checkChosenAttribute();
+    });
+
+    const changeChosenArray = () => {
+        const obj = {
+            ProductName: productName,
+            AttributeName: AttributeName,
+            value: value
+        };
+
+        if (canSetChosen) {
+            if (isChosenAttribute) {
+                removeChosenAttribute({ ProductName: productName, AttributeName: AttributeName });
+            } else {
+                setChosenAttribues(obj);
+            }
+        } else {
+            setChosenAttribues(obj);
+        }
+    };
 
     const className = type === "swatch" ? s.Color : s.Text;
     return (
         <div
-            onClick={() => {
-                setChosenAttribues({
-                    ProductName: productName,
-                    AttributeName: AttributeName,
-                    value: value
-                });
-                setIsChosenAttribute(true);
-            }}
+            onClick={changeChosenArray}
             style={type === "swatch" ? { background: value } : {}}
             className={className + (isChosenAttribute ? ` ${s.ChosenAttribute}` : '')}
         >

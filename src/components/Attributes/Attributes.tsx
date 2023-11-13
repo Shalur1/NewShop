@@ -2,13 +2,12 @@ import React, {FC} from 'react';
 import Attributee from "./Attribute/Attribute";
 import s from "./Attributes.module.css"
 import {Attribute} from "../../types/types";
-import useActions from "../../hooks/redux";
 
 interface AttributesProps {
     productName: string,
     name: string,
     type: string,
-    items: [Attribute]
+    items: Attribute[]
 }
 
 const Attributess: FC<AttributesProps> = ({productName, name, type, items}) => {
@@ -17,7 +16,8 @@ const Attributess: FC<AttributesProps> = ({productName, name, type, items}) => {
             <p>{name}</p>
             <div className={s.AttributeContainer}>
                 {items.map((elem) => {
-                    return <Attributee AttributeName={name} productName={productName} type={type} displayValue={elem.displayValue} value={elem.value} id={elem.id}/>
+                    return <Attributee AttributeName={name} productName={productName} type={type}
+                                       displayValue={elem.displayValue} value={elem.value} id={elem.id}/>
                 })}
             </div>
         </div>

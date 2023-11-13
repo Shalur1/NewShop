@@ -9,16 +9,15 @@ import ProductInfo from "./ProductInfo/ProductInfo";
 const ProductPage = () => {
 
     const params = useParams()
-    const {data, loading} = useQuery(GET_PRODUCT_INFO, {
+    const {data, loading, refetch} = useQuery(GET_PRODUCT_INFO, {
         variables: {id: params.productID}
     })
     const {setProductInfo} = useActions()
     const productInfo = useAppSelector(state => state.ProductInfoReducer.productInfo);
     const [chosenImageNumber, setChosenImageNumber] = useState(0)
-
     useEffect(() => {
         if (!loading) {
-            console.log(productInfo)
+            refetch()
             setProductInfo(data)
         }
     })
@@ -33,24 +32,23 @@ const ProductPage = () => {
 
     return (
         <div className={s.ProductPage}>
-            <div>
-                {productInfo.gallery && (
-                    <div className={s.Images}>
-                        <div className={s.imgContainer}>
-                            {productInfo.gallery.length > 1 &&
-                                productInfo.gallery.map((elem, index) => (
-                                    <img onClick={() => setChosenImage(index)} src={elem} />
-                                ))}
-                        </div>
-                        <div className={s.MainImageContainer}>
-                            <img className={s.MainImage} src={productInfo.gallery[chosenImageNumber]} alt="" />
-                        </div>
+            {productInfo.gallery && (
+                <div className={s.Images}>
+                    <div className={s.ChoseImages}>
+                        {productInfo.gallery.length > 1 &&
+                            productInfo.gallery.map((elem, index) => (
+                                <img onClick={() => setChosenImage(index)} src={elem}/>
+                            ))}
                     </div>
-                )}
-            </div>
+                    <div className={s.ChoseImages}>
+                        <img src={productInfo.gallery[chosenImageNumber]} alt=""/>
+                    </div>
+                </div>
+            )}
             <div>
                 <ProductInfo name={productInfo.name} brand={productInfo.brand} id={productInfo.id}
-                             attributes={productInfo.attributes} prices={productInfo.prices} category={productInfo.category}
+                             attributes={productInfo.attributes} prices={productInfo.prices}
+                             category={productInfo.category}
                              inStock={productInfo.inStock} description={productInfo.description}/>
             </div>
         </div>

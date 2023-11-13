@@ -7,7 +7,7 @@ export type chosenAttribute  = {
 }
 
 interface ChosenAttributes {
-    chosenAttributes: [chosenAttribute?]
+    chosenAttributes: chosenAttribute[]
 }
 
 const initialState: ChosenAttributes = {
@@ -22,9 +22,15 @@ const ChosenAttributesSlice = createSlice({
         setChosenAttribues(state, action){
             state.chosenAttributes.push(action.payload)
         },
-        removeChosenAttribute(state, action){
+        removeChosenAttribute(state, action) {
+            const { ProductName, AttributeName } = action.payload;
+            state.chosenAttributes = state.chosenAttributes.filter(
+                (attribute) =>
+                    attribute?.ProductName !== ProductName ||
+                    attribute?.AttributeName !== AttributeName
+            );
+        },
 
-        }
     },
 });
 

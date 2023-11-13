@@ -1,25 +1,29 @@
 .ProductPage{
     display: flex;
-    justify-content: space-between;
-    margin-top: 5vh;
 }
 
 .Images{
+    justify-content: flex-start;
     display: flex;
-    margin: 20px;
+    width: 100%;
 }
 
-.imgContainer{
-    width: 10vw;
-    display: flex;
+.ChoseImages{
     flex-direction: column;
+    width: 20%;
 }
 
-.MainImageContainer{
-
-}
-
-.Images img{
-    margin: 10px;
+.ChoseImages img{
     cursor: pointer;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.ChosenImage{
+    margin-right: 2%;
+    width: 80%;
+}
+
+.ChosenImage img{
+    width: 100%;
 }
