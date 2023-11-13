@@ -3,6 +3,7 @@ import Name from "../../Name/Name";
 import s from "./ProductInfo.module.css"
 import {Product} from "../../../types/types";
 import Attributess from "../../Attributes/Attributes";
+import Button from "../../UI/Button/Button";
 
 
 const ProductInfo: FC<Product> =
@@ -11,8 +12,9 @@ const ProductInfo: FC<Product> =
         <div className={s.ProductInfo}>
             <Name name={name} brand={brand}/>
             {attributes?.map((attributesElem) =>{
-                return <Attributess id={attributesElem.id} name={attributesElem.name} type={attributesElem.type} items={attributesElem.items}/>
+                return <Attributess productName={brand+" "+name} name={attributesElem.name} type={attributesElem.type} items={attributesElem.items}/>
             })}
+            <Button/>
         </div>
     );
 };

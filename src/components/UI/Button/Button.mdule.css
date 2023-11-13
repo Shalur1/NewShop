@@ -1,4 +1,4 @@
-button{
+.Button{
     background-color: green;
     color: white;
     border: none;
@@ -9,11 +9,6 @@ button{
     transition: background-color 0.3s ease; /* добавленная анимация */
 }
 
-button:hover{
+.Button:hover{
     background-color: darkgreen;
-}
-
-.disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
 }

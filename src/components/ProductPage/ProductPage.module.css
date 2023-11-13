@@ -15,12 +15,11 @@
     flex-direction: column;
 }
 
-.MainImage{
-    width: 50vw;
+.MainImageContainer{
+
 }
 
 .Images img{
-    width: 100%;
     margin: 10px;
     cursor: pointer;
 }

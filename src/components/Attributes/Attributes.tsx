@@ -1,15 +1,23 @@
 import React, {FC} from 'react';
-import {Attributes} from "../../types/types";
-import Attribute from "./Attribute/Attribute";
+import Attributee from "./Attribute/Attribute";
 import s from "./Attributes.module.css"
+import {Attribute} from "../../types/types";
+import useActions from "../../hooks/redux";
 
-const Attributess: FC<Attributes> = ({id, name, type, items}) => {
+interface AttributesProps {
+    productName: string,
+    name: string,
+    type: string,
+    items: [Attribute]
+}
+
+const Attributess: FC<AttributesProps> = ({productName, name, type, items}) => {
     return (
         <div className={s.Attributess}>
             <p>{name}</p>
             <div className={s.AttributeContainer}>
                 {items.map((elem) => {
-                    return <Attribute type={type} displayValue={elem.displayValue} value={elem.value} id={elem.id}/>
+                    return <Attributee AttributeName={name} productName={productName} type={type} displayValue={elem.displayValue} value={elem.value} id={elem.id}/>
                 })}
             </div>
         </div>

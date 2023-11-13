@@ -4,6 +4,7 @@ import {bindActionCreators} from "@reduxjs/toolkit";
 import {NavBarActions} from "../redux/NavBar/NavBar";
 import {ProductsInfoActions} from "../redux/MainPage/ProductsInfo";
 import {ProductInfoActions} from "../redux/ProductInfo/ProductInfo";
+import {ChosenAttributesActions} from "../redux/ChosenAttributes/ChosenAttributes";
 
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -13,6 +14,7 @@ const actions = {
     ...NavBarActions,
     ...ProductsInfoActions,
     ...ProductInfoActions,
+    ...ChosenAttributesActions,
 };
 
 const useActions = () => {

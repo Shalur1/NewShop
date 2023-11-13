@@ -2,11 +2,13 @@ import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {NavBarReducer} from "../NavBar/NavBar";
 import {ProductsInfoReducer} from "../MainPage/ProductsInfo";
 import {ProductInfoReducer} from "../ProductInfo/ProductInfo";
+import {ChosenAttributesReducer} from "../ChosenAttributes/ChosenAttributes";
 
 const rootReducer = combineReducers({
     NavBarReducer,
     ProductsInfoReducer,
-    ProductInfoReducer
+    ProductInfoReducer,
+    ChosenAttributesReducer
 })
 
 export const setupStore = () =>{
