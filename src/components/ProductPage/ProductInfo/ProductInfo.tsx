@@ -6,7 +6,7 @@ import Attributess from "../../Attributes/Attributes";
 import Button from "../../UI/Button/Button";
 
 
-const ProductInfo: FC<Product> =
+const  ProductInfo: FC<Product> =
     ({name, id, brand, prices,inStock, category, attributes, description}) => {
     return (
         <div className={s.ProductInfo}>

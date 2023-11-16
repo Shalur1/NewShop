@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import Attributee from "./Attribute/Attribute";
 import s from "./Attributes.module.css"
 import {Attribute} from "../../types/types";
@@ -11,12 +11,15 @@ interface AttributesProps {
 }
 
 const Attributess: FC<AttributesProps> = ({productName, name, type, items}) => {
+
+    const [isAttributeChosen, setIsAttributeChosen] = useState<boolean>(false)
+
     return (
         <div className={s.Attributess}>
             <p>{name}</p>
             <div className={s.AttributeContainer}>
                 {items.map((elem) => {
-                    return <Attributee AttributeName={name} productName={productName} type={type}
+                    return <Attributee isAttributeChosen={isAttributeChosen} setIsAttributeChosen={setIsAttributeChosen} AttributeName={name} productName={productName} type={type}
                                        displayValue={elem.displayValue} value={elem.value} id={elem.id}/>
                 })}
             </div>

@@ -1,10 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import {useQuery} from "@apollo/client";
+import {ApolloQueryResult, useQuery} from "@apollo/client";
 import {GET_PRODUCT_INFO} from "../../query/query";
 import {useParams} from "react-router-dom";
 import useActions, {useAppSelector} from "../../hooks/redux";
 import s from "./ProductPage.module.css"
 import ProductInfo from "./ProductInfo/ProductInfo";
+import {Product} from "../../types/types";
+
+interface ProductData {
+    product: Product;
+}
+
 
 const ProductPage = () => {
 
@@ -16,11 +22,11 @@ const ProductPage = () => {
     const productInfo = useAppSelector(state => state.ProductInfoReducer.productInfo);
     const [chosenImageNumber, setChosenImageNumber] = useState(0)
     useEffect(() => {
-        if (!loading) {
-            refetch()
-            setProductInfo(data)
-        }
-    })
+        refetch().then((newData: any) => {
+            console.log(newData.data)
+            setProductInfo(newData.data)
+        })
+    }, [])
 
     const setChosenImage = (number: number) => {
         setChosenImageNumber(number)

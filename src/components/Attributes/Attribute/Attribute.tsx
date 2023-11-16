@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {Dispatch, FC, SetStateAction, useEffect, useState} from 'react';
 import s from "./Attribute.module.css"
 import useActions, {useAppSelector} from "../../../hooks/redux";
 
@@ -8,13 +8,23 @@ interface AttributeeProps {
     value: string
     id: string
     type: string
-    AttributeName: string
+    AttributeName: string,
+    isAttributeChosen: boolean
+    setIsAttributeChosen: Dispatch<SetStateAction<boolean>>
 }
-const Attributee: FC<AttributeeProps> = ({ AttributeName, productName, displayValue, value, type, id }) => {
+const Attributee: FC<AttributeeProps> = ({isAttributeChosen, setIsAttributeChosen,AttributeName, productName, displayValue, value, type, id }) => {
     const chosenAtt = useAppSelector((state) => state.ChosenAttributesReducer.chosenAttributes);
     const { setChosenAttribues, removeChosenAttribute } = useActions();
     const [isChosenAttribute, setIsChosenAttribute] = useState(false);
-    const [canSetChosen, setCanSetChosen] = useState(true);
+
+    useEffect(() => {
+        checkChosenAttribute();
+    }, []);
+
+    useEffect(() => {
+        checkChosenAttribute();
+    }, [chosenAtt]);
+
     const checkChosenAttribute = () => {
         const chosenAttribute = chosenAtt.find((attr) => (
             attr &&
@@ -23,16 +33,7 @@ const Attributee: FC<AttributeeProps> = ({ AttributeName, productName, displayVa
             attr.value === value
         ));
         setIsChosenAttribute(!!chosenAttribute);
-        setCanSetChosen(!!chosenAttribute);
     };
-
-    useEffect(() => {
-        checkChosenAttribute();
-    }, [chosenAtt]);
-
-    useEffect(() => {
-        checkChosenAttribute();
-    });
 
     const changeChosenArray = () => {
         const obj = {
@@ -40,15 +41,18 @@ const Attributee: FC<AttributeeProps> = ({ AttributeName, productName, displayVa
             AttributeName: AttributeName,
             value: value
         };
-
-        if (canSetChosen) {
-            if (isChosenAttribute) {
-                removeChosenAttribute({ ProductName: productName, AttributeName: AttributeName });
-            } else {
-                setChosenAttribues(obj);
+        if (isAttributeChosen && isChosenAttribute) {
+            removeChosenAttribute({ ProductName: productName, AttributeName: AttributeName });
+            setIsAttributeChosen(false);
+        }
+        else {
+            if (isAttributeChosen){
+                return
             }
-        } else {
-            setChosenAttribues(obj);
+            else {
+                setChosenAttribues(obj);
+                setIsAttributeChosen(true);
+            }
         }
     };
 
