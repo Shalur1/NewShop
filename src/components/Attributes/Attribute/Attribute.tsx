@@ -19,11 +19,7 @@ const Attributee: FC<AttributeeProps> = ({isAttributeChosen, setIsAttributeChose
 
     useEffect(() => {
         checkChosenAttribute();
-    }, []);
-
-    useEffect(() => {
-        checkChosenAttribute();
-    }, [chosenAtt]);
+    }, [productName, chosenAtt]);
 
     const checkChosenAttribute = () => {
         const chosenAttribute = chosenAtt.find((attr) => (
@@ -32,7 +28,11 @@ const Attributee: FC<AttributeeProps> = ({isAttributeChosen, setIsAttributeChose
             attr.AttributeName === AttributeName &&
             attr.value === value
         ));
+        // console.log(productName, AttributeName, value, chosenAtt, isAttributeChosen)
         setIsChosenAttribute(!!chosenAttribute);
+        if (chosenAttribute){
+            setIsAttributeChosen(true)
+        }
     };
 
     const changeChosenArray = () => {
