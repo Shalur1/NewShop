@@ -28,7 +28,6 @@ const Attributee: FC<AttributeeProps> = ({isAttributeChosen, setIsAttributeChose
             attr.AttributeName === AttributeName &&
             attr.value === value
         ));
-        // console.log(productName, AttributeName, value, chosenAtt, isAttributeChosen)
         setIsChosenAttribute(!!chosenAttribute);
         if (chosenAttribute){
             setIsAttributeChosen(true)
@@ -41,6 +40,7 @@ const Attributee: FC<AttributeeProps> = ({isAttributeChosen, setIsAttributeChose
             AttributeName: AttributeName,
             value: value
         };
+        console.log(chosenAtt, isAttributeChosen)
         if (isAttributeChosen && isChosenAttribute) {
             removeChosenAttribute({ ProductName: productName, AttributeName: AttributeName });
             setIsAttributeChosen(false);

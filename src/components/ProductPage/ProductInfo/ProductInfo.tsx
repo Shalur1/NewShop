@@ -14,6 +14,8 @@ const  ProductInfo: FC<Product> =
             {attributes?.map((attributesElem) =>{
                 return <Attributess productName={brand+" "+name} name={attributesElem.name} type={attributesElem.type} items={attributesElem.items}/>
             })}
+            {inStock ? <div><p>In stock</p></div> : <div style={{color: "red"}}><p>Out stock</p></div>}
+
             <Button/>
         </div>
     );

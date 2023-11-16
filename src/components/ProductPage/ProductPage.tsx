@@ -23,7 +23,6 @@ const ProductPage = () => {
     const [chosenImageNumber, setChosenImageNumber] = useState(0)
     useEffect(() => {
         refetch().then((newData: any) => {
-            console.log(newData.data)
             setProductInfo(newData.data)
         })
     }, [])

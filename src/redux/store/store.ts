@@ -3,12 +3,14 @@ import {NavBarReducer} from "../NavBar/NavBar";
 import {ProductsInfoReducer} from "../MainPage/ProductsInfo";
 import {ProductInfoReducer} from "../ProductInfo/ProductInfo";
 import {ChosenAttributesReducer} from "../ChosenAttributes/ChosenAttributes";
+import {CurrenciesReducer} from "../Price/Price";
 
 const rootReducer = combineReducers({
     NavBarReducer,
     ProductsInfoReducer,
     ProductInfoReducer,
-    ChosenAttributesReducer
+    ChosenAttributesReducer,
+    CurrenciesReducer
 })
 
 export const setupStore = () =>{
