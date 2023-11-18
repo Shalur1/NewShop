@@ -1,17 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import NavVar from "./NavBar/Navbar";
 import s from "./Header.module.css"
 import Select from "../UI/Select/Select";
-import {useAppSelector} from "../../hooks/redux";
+import useActions, {useAppSelector} from "../../hooks/redux";
 
 const Header = () => {
-
-    const [selectedOption, setSelectedOption] = useState('');
-    const handleSelectChange = (selectedValue: string) => {
-        setSelectedOption(selectedValue);
-    };
-    const Currencies = useAppSelector(state => state.CurrenciesReducer.currencies)
-    console.log(Currencies)
+    const {setSelectedOption} = useActions()
+    const currencies = useAppSelector(state => state.CurrenciesReducer.currencies)
+    const selectedOption = useAppSelector(state => state.SelectedOptionReducer.SelectedOption)
 
     return (
         <div className={s.Header}>
@@ -21,7 +17,7 @@ const Header = () => {
             </div>
             <div className={s.Shop}>
                 <div>shop</div>
-                <Select Currencies={Currencies} onChange={handleSelectChange}/>
+                <Select selectedOption={selectedOption} Currencies={currencies} onChange={setSelectedOption}/>
             </div>
         </div>
     );
