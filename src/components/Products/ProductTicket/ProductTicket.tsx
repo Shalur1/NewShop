@@ -15,7 +15,6 @@ const ProductTicket: FC<ProductTicketProps> = ({elem}) => {
     const Redirect = () => {
         nav(`/product/${elem.id}`)
     }
-    const prices = elem.prices
 
     return (
         <div className={s.ProductTicket}>

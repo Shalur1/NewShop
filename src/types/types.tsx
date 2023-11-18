@@ -6,7 +6,7 @@ export type Product = {
     description?: string,
     category?: string,
     attributes?: [Attributes]
-    prices?: Price
+    prices?: [Price]
     brand: string,
 };
 

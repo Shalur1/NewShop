@@ -4,10 +4,12 @@ import s from "./ProductInfo.module.css"
 import {Product} from "../../../types/types";
 import Attributess from "../../Attributes/Attributes";
 import Button from "../../UI/Button/Button";
+import Price from "../../Price/Price";
 
 
 const  ProductInfo: FC<Product> =
     ({name, id, brand, prices,inStock, category, attributes, description}) => {
+    console.log(prices)
     return (
         <div className={s.ProductInfo}>
             <Name name={name} brand={brand}/>
@@ -15,7 +17,9 @@ const  ProductInfo: FC<Product> =
                 return <Attributess productName={brand+" "+name} name={attributesElem.name} type={attributesElem.type} items={attributesElem.items}/>
             })}
             {inStock ? <div><p>In stock</p></div> : <div style={{color: "red"}}><p>Out stock</p></div>}
-
+            {prices && (
+                <Price prices={prices}/>
+            )}
             <Button/>
         </div>
     );

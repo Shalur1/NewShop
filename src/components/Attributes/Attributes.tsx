@@ -2,6 +2,7 @@ import React, {FC, useState} from 'react';
 import Attributee from "./Attribute/Attribute";
 import s from "./Attributes.module.css"
 import {Attribute} from "../../types/types";
+import Price from "../Price/Price";
 
 interface AttributesProps {
     productName: string,

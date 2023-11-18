@@ -51,8 +51,10 @@ const ProductPage = () => {
                 </div>
             )}
             <div>
-                <ProductInfo name={productInfo.name} brand={productInfo.brand} id={productInfo.id}
-                             attributes={productInfo.attributes} prices={productInfo.prices}
+                <ProductInfo
+                    prices = {productInfo.prices}
+                    name={productInfo.name} brand={productInfo.brand} id={productInfo.id}
+                             attributes={productInfo.attributes}
                              category={productInfo.category}
                              inStock={productInfo.inStock} description={productInfo.description}/>
             </div>

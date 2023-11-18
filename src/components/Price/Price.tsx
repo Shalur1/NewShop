@@ -1,26 +1,16 @@
 import React, {FC} from 'react';
 import {useAppSelector} from "../../hooks/redux";
-
-interface Currency{
-    label: string,
-    symbol:string
-}
-
-interface price{
-    currency: Currency,
-    amount: number
-}
+import {Price} from "../../types/types"
 
 interface PriceProps{
-    prices: [price]
+    prices: [Price]
 }
 
-const Price:FC<PriceProps> = ({prices}) => {
+const Pricee:FC<PriceProps> = ({prices}) => {
     const selectedOption = useAppSelector(state => state.SelectedOptionReducer.SelectedOption)
     const filteredPrice = prices.find(
         (price) => price.currency.symbol === selectedOption
     );
-    console.log(filteredPrice)
 
     return (
         <div>
@@ -33,4 +23,4 @@ const Price:FC<PriceProps> = ({prices}) => {
     );
 };
 
-export default Price;
+export default Pricee;
