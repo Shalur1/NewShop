@@ -6,6 +6,7 @@ import useActions, {useAppSelector} from "../../hooks/redux";
 import s from "./ProductPage.module.css"
 import ProductInfo from "./ProductInfo/ProductInfo";
 import {Product} from "../../types/types";
+import ProductImages from "./ProductImages/ProductImages";
 
 interface ProductData {
     product: Product;
@@ -37,19 +38,11 @@ const ProductPage = () => {
 
     return (
         <div className={s.ProductPage}>
-            {productInfo.gallery && (
-                <div className={s.Images}>
-                    <div className={s.ChoseImages}>
-                        {productInfo.gallery.length > 1 &&
-                            productInfo.gallery.map((elem, index) => (
-                                <img onClick={() => setChosenImage(index)} src={elem}/>
-                            ))}
-                    </div>
-                    <div className={s.ChoseImages}>
-                        <img src={productInfo.gallery[chosenImageNumber]} alt=""/>
-                    </div>
-                </div>
-            )}
+            <div>
+                {productInfo.gallery && (
+                    <ProductImages gallery={productInfo.gallery} />
+                )}
+            </div>
             <div>
                 <ProductInfo
                     prices = {productInfo.prices}

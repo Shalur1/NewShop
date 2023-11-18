@@ -1,11 +1,16 @@
-import React from 'react';
-import s from "./Button.mdule.css"
+import React, { FC, ReactNode } from 'react';
 
-const Button = () => {
+interface ButtonProps {
+    children?: ReactNode;
+    onClick?: () => void;
+    disabled?: boolean;
+}
+
+const Button: FC<ButtonProps> = ({ children, onClick, disabled }) => {
     return (
-        <div className={s.Button}>
-            <button>Add to Cart</button>
-        </div>
+        <button className="button" onClick={onClick} disabled={disabled}>
+            {children}
+        </button>
     );
 };
 

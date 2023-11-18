@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 import s from "./ProductTicket.module.css"
 import Button from "../../UI/Button/Button";
 import Image from "../../UI/Image/Image";
@@ -10,6 +10,7 @@ import Name from "../../Name/Name";
 interface ProductTicketProps {
     elem: any,
 }
+
 const ProductTicket: FC<ProductTicketProps> = ({elem}) => {
     const nav = useNavigate()
     const Redirect = () => {
@@ -28,12 +29,11 @@ const ProductTicket: FC<ProductTicketProps> = ({elem}) => {
                 <Price prices={elem.prices}/>
             </div>
             {elem.inStock ? <p>In Stock</p> : <p>Out Stock</p>}
-            <div onClick={Redirect}>
-                <Button/>
+            <div>
+                <Button onClick={Redirect}>Go to Product Page</Button>
             </div>
         </div>
-    )
-        ;
+    );
 };
 
 export default ProductTicket;

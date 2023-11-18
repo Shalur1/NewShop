@@ -20,7 +20,7 @@ const  ProductInfo: FC<Product> =
             {prices && (
                 <Price prices={prices}/>
             )}
-            <Button/>
+            <Button>Add to Cart</Button>
         </div>
     );
 };
