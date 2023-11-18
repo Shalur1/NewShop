@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-    SelectedOption: ""
+    SelectedOption: "$"
 };
 
 const SelectedOptionSlice = createSlice({

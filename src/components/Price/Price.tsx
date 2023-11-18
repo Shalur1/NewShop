@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import {useAppSelector} from "../../hooks/redux";
 
 interface Currency{
     label: string,
@@ -15,9 +16,19 @@ interface PriceProps{
 }
 
 const Price:FC<PriceProps> = ({prices}) => {
+    const selectedOption = useAppSelector(state => state.SelectedOptionReducer.SelectedOption)
+    const filteredPrice = prices.find(
+        (price) => price.currency.symbol === selectedOption
+    );
+    console.log(filteredPrice)
+
     return (
         <div>
-            <p>{prices[0].amount + " " + prices[0].currency.symbol}</p>
+            {filteredPrice && (
+                <p>
+                    {filteredPrice.amount} {filteredPrice.currency.symbol}
+                </p>
+            )}
         </div>
     );
 };

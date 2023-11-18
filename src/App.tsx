@@ -9,7 +9,6 @@ import {useQuery} from "@apollo/client";
 import {GET_CURRENCIES, GET_PRODUCTS} from "./query/query";
 
 function App() {
-
     const { data, loading, error } = useQuery(GET_CURRENCIES);
     const {setCurrencies} = useActions()
     useEffect(()=>{
@@ -17,7 +16,6 @@ function App() {
             setCurrencies(data.currencies)
         }
     },[loading])
-
     return (
         <div className="App">
             <BrowserRouter>

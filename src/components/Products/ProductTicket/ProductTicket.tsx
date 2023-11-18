@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import s from "./ProductTicket.module.css"
 import Button from "../../UI/Button/Button";
 import Image from "../../UI/Image/Image";
@@ -8,15 +8,14 @@ import Name from "../../Name/Name";
 
 
 interface ProductTicketProps {
-    elem: any
+    elem: any,
 }
-
 const ProductTicket: FC<ProductTicketProps> = ({elem}) => {
     const nav = useNavigate()
-
     const Redirect = () => {
         nav(`/product/${elem.id}`)
     }
+    const prices = elem.prices
 
     return (
         <div className={s.ProductTicket}>

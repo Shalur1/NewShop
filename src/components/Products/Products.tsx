@@ -21,6 +21,7 @@ const Products: FC = () => {
         }
     }, [chosenCategory, loading]);
 
+
     if (loading) {
         return <p>Loading...</p>;
     }
