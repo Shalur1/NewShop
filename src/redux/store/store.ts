@@ -5,6 +5,7 @@ import {ProductInfoReducer} from "../ProductInfo/ProductInfo";
 import {ChosenAttributesReducer} from "../ChosenAttributes/ChosenAttributes";
 import {CurrenciesReducer} from "../Price/Price";
 import {SelectedOptionReducer} from "../SelectedOption/SelectedOption";
+import {CartReducer} from "../Cart/Cart";
 
 const rootReducer = combineReducers({
     NavBarReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     ProductInfoReducer,
     ChosenAttributesReducer,
     CurrenciesReducer,
-    SelectedOptionReducer
+    SelectedOptionReducer,
+    CartReducer
 })
 
 export const setupStore = () =>{

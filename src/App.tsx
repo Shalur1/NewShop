@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import useActions, {useAppDispatch} from "./hooks/redux";
 import {useQuery} from "@apollo/client";
 import {GET_CURRENCIES, GET_PRODUCTS} from "./query/query";
+import Cart from "./components/CART/Cart";
 
 function App() {
     const { data, loading, error } = useQuery(GET_CURRENCIES);
@@ -23,6 +24,7 @@ function App() {
                 <Routes>
                     <Route path={"/"} element={<MainPage/>}/>
                     <Route path={"/product/:productID"} element={<ProductPage/>}/>
+                    <Route path={"/Cart"} element={<Cart/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

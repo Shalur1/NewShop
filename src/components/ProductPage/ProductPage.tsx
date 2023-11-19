@@ -21,16 +21,11 @@ const ProductPage = () => {
     })
     const {setProductInfo} = useActions()
     const productInfo = useAppSelector(state => state.ProductInfoReducer.productInfo);
-    const [chosenImageNumber, setChosenImageNumber] = useState(0)
     useEffect(() => {
         refetch().then((newData: any) => {
             setProductInfo(newData.data)
         })
     }, [])
-
-    const setChosenImage = (number: number) => {
-        setChosenImageNumber(number)
-    }
 
     if (loading) {
         return <p>Loading...</p>;

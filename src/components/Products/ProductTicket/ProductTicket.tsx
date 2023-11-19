@@ -30,7 +30,7 @@ const ProductTicket: FC<ProductTicketProps> = ({elem}) => {
             </div>
             {elem.inStock ? <p>In Stock</p> : <p>Out Stock</p>}
             <div>
-                <Button onClick={Redirect}>Go to Product Page</Button>
+                <Button disabled={!elem.inStock} onClick={Redirect}>Go to Product Page</Button>
             </div>
         </div>
     );

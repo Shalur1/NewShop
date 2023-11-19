@@ -1,0 +1,20 @@
+.CartProductTicket{
+    display: flex;
+    justify-content: center;
+}
+
+.Image{
+    width: 30vw;
+}
+
+.Info{
+    flex-direction: column;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Image img{
+    width: 100%;
+}

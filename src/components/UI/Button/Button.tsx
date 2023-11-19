@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from 'react';
+import s from "./Button.module.css"
 
 interface ButtonProps {
     children?: ReactNode;
@@ -8,10 +9,11 @@ interface ButtonProps {
 
 const Button: FC<ButtonProps> = ({ children, onClick, disabled }) => {
     return (
-        <button className="button" onClick={onClick} disabled={disabled}>
+        <button className={s.Button} onClick={onClick} disabled={disabled}>
             {children}
         </button>
     );
 };
 
 export default Button;
+

@@ -1,14 +1,15 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
+import s from "./Name.module.css"
 
-interface NameProps{
-    name: string,
-    brand: string
+interface NameProps {
+    name: string;
+    brand: string;
 }
 
-const Name:FC<NameProps> = ({name, brand}) => {
+const Name: FC<NameProps> = ({ name, brand }) => {
     return (
-        <div>
-            <p>{brand + " " + name}</p>
+        <div className={s.Name}>
+            {brand} {name}
         </div>
     );
 };

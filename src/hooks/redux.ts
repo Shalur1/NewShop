@@ -7,6 +7,7 @@ import {ProductInfoActions} from "../redux/ProductInfo/ProductInfo";
 import {ChosenAttributesActions} from "../redux/ChosenAttributes/ChosenAttributes";
 import {CurrenciesActions} from "../redux/Price/Price";
 import {SelectedOptionActions} from "../redux/SelectedOption/SelectedOption";
+import {CartActions} from "../redux/Cart/Cart";
 
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -18,7 +19,8 @@ const actions = {
     ...ProductInfoActions,
     ...ChosenAttributesActions,
     ...CurrenciesActions,
-    ...SelectedOptionActions
+    ...SelectedOptionActions,
+    ...CartActions,
 };
 
 const useActions = () => {
