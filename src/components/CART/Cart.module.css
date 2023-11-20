@@ -1,0 +1,12 @@
+.TotalPrice{
+    margin-top: 2vh;
+    width: 80vw;
+    height: 20vh;
+    border-top: black solid 1px;
+}
+
+.Cart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

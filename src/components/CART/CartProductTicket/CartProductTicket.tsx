@@ -6,6 +6,7 @@ import Image from "../../UI/Image/Image";
 import Name from "../../Name/Name";
 import Attributess from "../../Attributes/Attributes";
 import Price from "../../Price/Price";
+import QuantitySelector from "./QuantitySelector/QuantitySelector";
 
 interface CartProductTicketProps {
     id: string | undefined
@@ -15,7 +16,6 @@ const CartProductTicket: FC<CartProductTicketProps> = ({id}) => {
     const {data, loading, error} = useQuery(GET_PRODUCT_INFO, {
         variables: {id: id}
     })
-    console.log(data)
     return (
         <div className={s.CartProductTicket}>
             <div className={s.Image}>
@@ -33,6 +33,9 @@ const CartProductTicket: FC<CartProductTicketProps> = ({id}) => {
                 </div>
                 <div>
                     <Price prices={data.product.prices}/>
+                </div>
+                <div>
+                    <QuantitySelector initialValue={1}/>
                 </div>
             </div>
         </div>

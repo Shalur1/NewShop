@@ -2,10 +2,12 @@ import {createSlice} from '@reduxjs/toolkit';
 
 interface CartState {
     products: [string?]
+    totalPrice: number
 }
 
 const initialState: CartState = {
-    products: []
+    products: [],
+    totalPrice: 0
 };
 
 const CartSlice = createSlice({
@@ -14,7 +16,13 @@ const CartSlice = createSlice({
     reducers: {
         addToProducts (state, action){
             state.products.push(action.payload)
-        }
+        },
+        addToTotalPrice (state, action){
+            state.totalPrice = state.totalPrice + action.payload
+        },
+        removeFromTotalPrice (state, action){
+            state.totalPrice = state.totalPrice - action.payload
+        },
     },
 });
 
