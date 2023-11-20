@@ -6,6 +6,7 @@
     align-items: center;
     margin: 6px;
     border: black solid 1px;
+    font-size: 2vw;
     height: 4vw;
     width: 6vw;
 }

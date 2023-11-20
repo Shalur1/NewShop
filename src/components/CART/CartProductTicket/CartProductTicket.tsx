@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useRef, useState} from 'react';
 import {useQuery} from "@apollo/client";
 import {GET_PRODUCT_INFO} from "../../../query/query";
 import s from "./CartProductTicket.module.css";
@@ -16,6 +16,8 @@ const CartProductTicket: FC<CartProductTicketProps> = ({id}) => {
     const {data, loading, error} = useQuery(GET_PRODUCT_INFO, {
         variables: {id: id}
     })
+    const ref = useRef<HTMLSpanElement>(null);
+    const [num, setNum] = useState<number>(1);
     return (
         <div className={s.CartProductTicket}>
             <div className={s.Image}>
@@ -32,10 +34,10 @@ const CartProductTicket: FC<CartProductTicketProps> = ({id}) => {
                     })}
                 </div>
                 <div>
-                    <Price prices={data.product.prices}/>
+                    <Price factor={num} prices={data.product.prices}/>
                 </div>
                 <div>
-                    <QuantitySelector initialValue={1}/>
+                    <QuantitySelector onQuantityChange={setNum} initialValue={1}/>
                 </div>
             </div>
         </div>

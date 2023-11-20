@@ -43,10 +43,6 @@
     object-fit: contain;
 }
 
-.Navigation button{
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
 .Navigation{
     margin: 10px;
     display: flex;

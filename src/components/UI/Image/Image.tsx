@@ -1,5 +1,6 @@
 import React, {FC, useState} from 'react';
 import s from './Image.module.css';
+import Button from "../Button/Button";
 
 interface ImageProps {
     images: any;
@@ -36,8 +37,8 @@ const Image: FC<ImageProps> = ({images}) => {
                 <div className={s.modalContent} onClick={stopPropagation}>
                     <img src={images[currentImageIndex]} className={s.modalImage} />
                     <div className={s.Navigation}>
-                        <button onClick={prevImage}>Previous</button>
-                        <button onClick={nextImage}>Next</button>
+                        <Button onClick={prevImage}>Previous</Button>
+                        <Button onClick={nextImage}>Next</Button>
                     </div>
                 </div>
             </div>

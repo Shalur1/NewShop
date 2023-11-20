@@ -32,19 +32,21 @@ const ProductPage = () => {
     }
 
     return (
-        <div className={s.ProductPage}>
-            <div>
-                {productInfo.gallery && (
-                    <ProductImages gallery={productInfo.gallery} />
-                )}
-            </div>
-            <div>
-                <ProductInfo
-                    prices = {productInfo.prices}
-                    name={productInfo.name} brand={productInfo.brand} id={productInfo.id}
-                             attributes={productInfo.attributes}
-                             category={productInfo.category}
-                             inStock={productInfo.inStock} description={productInfo.description}/>
+        <div className={s.ProductPageContainer}>
+            <div className={s.ProductPage}>
+                <div>
+                    {productInfo.gallery && (
+                        <ProductImages gallery={productInfo.gallery} />
+                    )}
+                </div>
+                <div>
+                    <ProductInfo
+                        prices = {productInfo.prices}
+                        name={productInfo.name} brand={productInfo.brand} id={productInfo.id}
+                        attributes={productInfo.attributes}
+                        category={productInfo.category}
+                        inStock={productInfo.inStock} description={productInfo.description}/>
+                </div>
             </div>
         </div>
     );
